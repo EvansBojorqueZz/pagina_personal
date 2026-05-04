@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evans Martin Bojorquez Covarrubias | Portafolio Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === VARIABLES CSS === */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.7);
+            --wine-red: #8B1C31;
+            --wine-glow: rgba(139, 28, 49, 0.6);
+            --text-light: #eaeaea;
+            --text-muted: #a0a0a0;
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fondo con gradiente sutil */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 50% 0%, rgba(139, 28, 49, 0.15) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        /* === CONTENEDOR PRINCIPAL === */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* === HEADER / PRESENTACIÓN === */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--wine-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--wine-glow);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        /* === CONTACTOS === */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.05rem;
+            text-transform: lowercase; /* <--- Esto fuerza las minúsculas */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--wine-red);
+            text-shadow: 0 0 10px var(--wine-glow);
+            transform: translateY(-2px);
+        }
+
+        .contact-info i {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .bio {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            background: var(--bg-card);
+            padding: 25px;
+            border-left: 4px solid var(--wine-red);
+            border-radius: 0 10px 10px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* === SECCIONES === */
+        section {
+            margin: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--wine-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* === GUSTOS MUSICALES === */
+        .music-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .music-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 28, 49, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .music-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px var(--wine-glow);
+            border-color: var(--wine-red);
+        }
+
+        .music-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            filter: grayscale(30%);
+            transition: filter 0.3s ease;
+        }
+
+        .music-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .music-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .music-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* === DEPORTES (GRID DE IMÁGENES) === */
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .sport-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 28, 49, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px var(--wine-glow);
+            border-color: var(--wine-red);
+        }
+
+        .sport-card img {
+            width: 100%;
+            height: 200px; /* Altura fija para consistencia */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            filter: grayscale(40%) brightness(0.8);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .sport-card:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.03);
+        }
+
+        .sport-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sport-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-top: auto; /* Empuja el texto al fondo si hay poco contenido */
+        }
+
+        /* === ANIMACIONES === */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(139, 28, 49, 0.3);
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER / PRESENTACIÓN -->
+        <header>
+            <h1>Evans Martin Bojorquez Covarrubias</h1>
+            <p class="subtitle">Ingeniería en Computación | UNAM</p>
+            <div class="contact-info">
+                <a href="evans.bojorquezz@gmail.com"><i class="fas fa-envelope"></i> tu-correo@gmail.com</a>
+                <a href="linkedin.com/in/evans-bojorquez/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/evansbojorquez</a>
+                <a href="https://github.com/EvansBojorqueZz" target="_blank"><i class="fab fa-github"></i> github.com/evansb</a>
+            </div>
+            <div class="bio">
+                <p>Actualmente me encuentro en <strong>Sexto Semestre</strong> en la Facultad de Ingeniería en Universidad Nacional Autónoma de México.
+                    Destaco por mi capacidad para evitar la rigidez del código algorítmico puro y, en su lugar, aprovechar mis habilidades analíticas y de comunicación para traducir datos en estrategias claras que impulsen 
+                     proyectos tecnológicos y de producto.</p>
+            </div>
+        </header>
+
+        <!-- MÚSICA -->
+        <section>
+            <h2>Vibras Musicales</h2>
+            <div class="music-cards-container">
+                <!-- Joji -->
+                <div class="music-card">
+                    <img src="https://preview.redd.it/i-love-joji-v0-pbk163yhcqbe1.jpeg?width=640&crop=smart&auto=webp&s=34ae292af7a2ae1b737d66b753f00bda0f28bed9" alt="Joji">
+                    <h3>Joji</h3>
+                    <p>Me gusta el hecho también de que sus conciertos sean muy randoms, no va solo a cantar si no a pasarla bien con el público.</p>
+                </div>
+                
+                <!-- Mac Miller -->
+                <div class="music-card">
+                    <img src="https://people.com/thmb/BJrZI2M2TYzJIGl3bGvW8BssnOQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(778x0:780x2):format(webp)/mac-miller-1-108735c1d83e411997465fa5e055d50c.jpg" alt="Mac Miller">
+                    <h3>Mac Miller</h3>
+                    <p>Que descanse en paz, gran parte de la persona que soy es gracias a sus canciones.</p>
+                </div>
+                
+                <!-- Fred Again.. -->
+                <div class="music-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWchu69Uh-04Bf76jsLGZVcWyP3lFteTNnDw&s" alt="Fred Again">
+                    <h3>Fred Again..</h3>
+                    <p>Es un genio! Su forma de ser, su forma de mezclar música y su forma de hacer música es digno de estudiarse.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPORTES -->
+        <section>
+            <h2>Deportes Favoritos</h2>
+            <div class="sports-grid">
+                <!-- Béisbol -->
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=600&auto=format&fit=crop" alt="Béisbol">
+                    <h3>Béisbol</h3>
+                    <p>Es el único partido que me gusta ver en estadios por la afición tranquila que tiene este deporte.</p>
+                </div>
+                
+                <!-- Básquetbol -->
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=600&auto=format&fit=crop" alt="Básquetbol">
+                    <h3>Básquetbol</h3>
+                    <p>También se me hace un deporte asombrante por lo demandante que puede llegar a ser.</p>
+                </div>
+                
+                <!-- Natación -->
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=600&auto=format&fit=crop" alt="Natación">
+                    <h3>Natación</h3>
+                    <p>Lo practiqué por mucho tiempo y sigo amando nadar de cualquier estilo.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Evans Bojorquez.</p>
+    </footer>
+
+</body>
+</html>
